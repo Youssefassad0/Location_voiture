@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\CleintController;
 use App\Http\Controllers\VoitureController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 Route::resource('voitures', VoitureController::class);
+
+Route::resource('clients', CleintController::class);
+
+
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('postlogin');

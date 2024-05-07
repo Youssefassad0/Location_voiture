@@ -46,7 +46,7 @@
         <div class="menu">
             <h5>Here is The Menu : </h5>
             <a href="{{ route('voitures.index') }}">Gestion des voitures occupée </a>
-            <a href="">Gestion des Clients</a>
+            <a href="{{ route('clients.index') }}">Gestion des Clients</a>
             <a href="">Gestion des voitures occupée </a>
         </div>
     </div>
