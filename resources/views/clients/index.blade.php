@@ -31,7 +31,7 @@
             Liste Des Clients
         </h1>
         <a href="{{ route('home') }}" class="btn btn-success">Accueil</a>
-        <a href="{{ route('voitures.create') }}">Ajouter un Client </a>
+        <a href="{{ route('clients.create') }}">Ajouter un Client </a>
     </div>
     <table class="table table-dark">
         <thead>
@@ -49,8 +49,8 @@
                     <td>{{ $c->nom }}</td>
                     <td>{{ $c->prenom }}</td>
                     <td class="d-flex justify-content-between">
-                        <a class="btn btn-success">Modifier</a>
-                        <form method="POST">
+                        <a class="btn btn-success" href="{{ route('client.update',$c->id) }}">Modifier</a>
+                        <form method="POST"  action="{{ route('clients.destroy',$c->id) }}">
                             @csrf
                             @method('delete')
                             <input type="submit" value="Supprimer" class="btn btn-danger">

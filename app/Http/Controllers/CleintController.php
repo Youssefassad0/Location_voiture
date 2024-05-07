@@ -21,8 +21,7 @@ class CleintController extends Controller
      */
     public function create()
     {
-        $Clients = Client::all();
-        return view('clients.create', compact('Clients'));
+        return view('clients.create');
     }
 
     /**
@@ -30,7 +29,15 @@ class CleintController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'nom' => 'required',
+            'prenom' => 'required',
+            'num_permis' => 'required'
+        ]);
+
+        Client::create($validateData);
+
+        return redirect()->route('clients.index')->with('success', 'client a été ajouté avec succès !');
     }
 
     /**
@@ -62,6 +69,7 @@ class CleintController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Client::findOrFail($id)->delete();
+        return redirect()->route('clients.index')->with('success', 'le client a été bien supprimé');
     }
 }
