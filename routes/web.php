@@ -23,7 +23,7 @@ Route::resource('voitures', VoitureController::class);
 
 Route::resource('clients', CleintController::class);
 
-
+Route::post('/filtrer', [VoitureController::class, 'filtrer'])->name('voitures.filtrer');
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('postlogin');

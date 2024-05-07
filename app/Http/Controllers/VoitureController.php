@@ -67,7 +67,6 @@ class VoitureController extends Controller
     {
         $voiture = Voiture::findOrFail($id);
         $Clients = Client::all();
-
         return view('voitures.update', compact('voiture', 'Clients'));
     }
 
@@ -98,5 +97,14 @@ class VoitureController extends Controller
         Voiture::findOrFail($id)->delete();
 
         return redirect()->route('voitures.index')->with('success', 'la voiture a été bien supprimé');
+    }
+    public function filtrer(Request $request)
+    {
+        $request->validate(['date' => 'required']);
+        $date = $request->input('date');
+        $voitures = Voiture::where('date_debut_location', '<=', $date)
+            ->where('date_fin_location', '>=', $date)
+            ->paginate(5);
+        return view('voitures.index', compact('voitures'));
     }
 }

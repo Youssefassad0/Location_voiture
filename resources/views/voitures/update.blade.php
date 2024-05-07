@@ -9,7 +9,7 @@
             Home</a></button>
     <h1 class="text-center">Modifier une voiture</h1>
 
-    <form action="{{ route('voitures.update') }}" method="POST">
+    <form action="{{ route('voitures.update', $voiture->id) }}" method="POST">
         @csrf
         @method('PUT')
         <table class="table">
@@ -80,10 +80,10 @@
                 </tr>
                 <tr>
                     <th>Le Client</th>
-                    <td><select name="id_client" class="form-select" value="{{ $voiture->id_client }}">
-                            @foreach ($Clients as $Client)
-                                <option value="{{ $Client->id }}">
-                                    {{ $Client->nom . ' ' . $Client->prenom }}
+                    <td> <select name="id_client" class="form-select">
+                            @foreach ($Clients as $club)
+                                <option value="{{ $club->id }}" @if ($club->id === $voiture->id_client) selected @endif>
+                                    {{ $club->nom . ' ' . $club->prenom }}
                                 </option>
                             @endforeach
                         </select>
