@@ -46,7 +46,7 @@
                 </tr>
                 <tr>
                     <th>Kilometrage</th>
-                    <td> <input type="number" name="Kilometrage" class="form-input" value="{{ old('Kilometrage') }}" >
+                    <td> <input type="number" name="Kilometrage" class="form-input" value="{{ old('num_assurance') }}" >
                         @error('Kilometrage')
                             <p class="text-danger">
                                 {{ $message }}

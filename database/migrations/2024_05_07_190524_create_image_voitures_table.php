@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('voiture_id');
             $table->foreign('voiture_id')->references('id')->on('voitures')->onDelete('cascade');
-            $table->string('chemin_image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
