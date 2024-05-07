@@ -15,7 +15,7 @@
             <tbody>
                 <tr>
                     <th>Nom voiture</th>
-                    <td> <input type="text" name="nom" class="form-input">
+                    <td> <input type="text" name="nom" class="form-input" value="{{ old('nom') }}">
                         @error('nom')
                             <p class="text-danger">
                                 {{ $message }}
@@ -25,31 +25,32 @@
                 </tr>
                 <tr>
                     <th>immatriculation</th>
-                    <td> <input type="text" name="immatriculation" class="form-input">
+                    <td> <input type="text" name="immatriculation" class="form-input"
+                            value="{{ old('immatriculation') }}">
                         @error('immatriculation')
-                        <p class="text-danger">
-                            {{ $message }}
-                        </p>
+                            <p class="text-danger">
+                                {{ $message }}
+                            </p>
                         @enderror
                     </td>
                 </tr>
                 <tr>
                     <th>num_assurance</th>
-                    <td> <input type="number" name="num_assurance" class="form-input">
+                    <td> <input type="number" name="num_assurance" class="form-input" value="{{ old('num_assurance') }}">
                         @error('num_assurance')
-                        <p class="text-danger">
-                            {{ $message }}
-                        </p>
+                            <p class="text-danger">
+                                {{ $message }}
+                            </p>
                         @enderror
                     </td>
                 </tr>
                 <tr>
                     <th>Kilometrage</th>
-                    <td> <input type="number" name="Kilometrage" class="form-input">
+                    <td> <input type="number" name="Kilometrage" class="form-input" value="{{ old('Kilometrage') }}" >
                         @error('Kilometrage')
-                        <p class="text-danger">
-                            {{ $message }}
-                        </p>
+                            <p class="text-danger">
+                                {{ $message }}
+                            </p>
                         @enderror
                     </td>
                 </tr>
@@ -57,9 +58,9 @@
                     <th>date debut location</th>
                     <td> <input type="date" name="date_debut_location" class="form-input">
                         @error('date_debut_location')
-                        <p class="text-danger">
-                            {{ $message }}
-                        </p>
+                            <p class="text-danger">
+                                {{ $message }}
+                            </p>
                         @enderror
                     </td>
                 </tr>
@@ -67,9 +68,9 @@
                     <th>date fin location</th>
                     <td> <input type="date" class="form-input" name="date_fin_location">
                         @error('date_fin_location')
-                        <p class="text-danger">
-                            {{ $message }}
-                        </p>
+                            <p class="text-danger">
+                                {{ $message }}
+                            </p>
                         @enderror
                     </td>
                 </tr>
@@ -83,9 +84,9 @@
                             @endforeach
                         </select>
                         @error('id_client')
-                        <p class="text-danger">
-                            {{ $message }}
-                        </p>
+                            <p class="text-danger">
+                                {{ $message }}
+                            </p>
                         @enderror
                     </td>
                 </tr>

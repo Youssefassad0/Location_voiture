@@ -48,7 +48,7 @@
                     <td> {{ $voiture->nom }} </td>
                     <td> {{ $voiture->getClient($voiture->id) }} </td>
                     <td class="d-flex justify-content-between">
-                        <button class="btn btn-success">Modifier</button>
+                        <a href="{{ route('voitures.edit', $voiture->id) }}" class="btn btn-success">Modifier</a>
                         <form action="{{ route('voitures.destroy', $voiture->id) }}" method="POST">
                             @csrf
                             @method('delete')
