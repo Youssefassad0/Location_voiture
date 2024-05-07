@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clients', function (Blueprint $table) {
+        Schema::create('image_voitures', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('prenom');
-            $table->string('email');
-            $table->integer('num_permis');
+            $table->unsignedBigInteger('voiture_id');
+            $table->foreign('voiture_id')->references('id')->on('voitures')->onDelete('cascade');
+            $table->string('chemin_image');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clients');
+        Schema::dropIfExists('image_voitures');
     }
 };

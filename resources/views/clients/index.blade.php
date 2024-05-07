@@ -39,6 +39,7 @@
                 <th>ID</th>
                 <th>Nom</th>
                 <th>Prenom</th>
+                <th>Numero de Permis</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -48,14 +49,15 @@
                     <td>{{ $c->id }}</td>
                     <td>{{ $c->nom }}</td>
                     <td>{{ $c->prenom }}</td>
+                    <td>{{ $c->num_permis }}</td>
                     <td class="d-flex justify-content-between">
-                        <a class="btn btn-success" href="{{ route('client.update',$c->id) }}">Modifier</a>
-                        <form method="POST"  action="{{ route('clients.destroy',$c->id) }}">
+                        <a class="btn btn-success" href="{{ route('clients.edit', $c->id) }}">Modifier</a>
+                        <form method="POST" action="{{ route('clients.destroy', $c->id) }}">
                             @csrf
                             @method('delete')
                             <input type="submit" value="Supprimer" class="btn btn-danger">
                         </form>
-                        <a id="show">view details</a>
+                        <a id="show" href="{{ route('clients.show',$c->id) }}" >view details</a>
                     </td>
                 </tr>
             @endforeach

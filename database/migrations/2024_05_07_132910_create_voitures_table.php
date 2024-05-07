@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('immatriculation');
             $table->string('nom');
+            $table->string('image');
             $table->integer('num_assurance');
             $table->integer('Kilometrage');
             $table->date('date_debut_location');

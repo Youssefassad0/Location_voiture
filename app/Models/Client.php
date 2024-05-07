@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     use HasFactory;
-    protected $fillable = ['nom', 'prenom', 'num_permis'];
+    protected $fillable = ['nom', 'prenom', 'num_permis', 'email'];
     public function voitures()
     {
         return $this->hasMany(Voiture::class);

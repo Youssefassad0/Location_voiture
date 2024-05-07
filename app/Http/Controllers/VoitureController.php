@@ -42,7 +42,8 @@ class VoitureController extends Controller
             'Kilometrage' => 'required',
             'date_debut_location' => 'nullable|date',
             'date_fin_location' => 'nullable|date',
-            'id_client' => 'required'
+            'id_client' => 'required',
+            'image' => 'required|'
         ]);
 
         Voiture::create($validateData);
@@ -96,6 +97,7 @@ class VoitureController extends Controller
     public function destroy($id)
     {
         Voiture::findOrFail($id)->delete();
+
         return redirect()->route('voitures.index')->with('success', 'la voiture a été bien supprimé');
     }
 }

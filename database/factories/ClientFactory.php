@@ -20,6 +20,8 @@ class ClientFactory extends Factory
             'nom' => fake()->firstName(),
             'prenom' => fake()->lastName(),
             'num_permis' => fake()->numberBetween(100, 500),
+            'email' => fake()->safeEmail()
+
         ];
     }
 }
