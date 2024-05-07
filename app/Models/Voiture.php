@@ -15,10 +15,13 @@ class Voiture extends Model
     }
     public function getClient($id)
     {
-        return Client::find($id)->nom;
-    }
-    public function images()
-    {
-        return $this->hasMany(ImageVoiture::class);
+        $client = Client::find($id);
+
+        if ($client) {
+            $nomComplet = $client->nom . ' ' . $client->prenom;
+            return $nomComplet;
+        } else {
+            return 'Client introuvable';
+        }
     }
 }
