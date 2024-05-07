@@ -43,7 +43,6 @@ class VoitureController extends Controller
             'date_debut_location' => 'nullable|date',
             'date_fin_location' => 'nullable|date',
             'id_client' => 'required',
-            'image' => 'required|'
         ]);
 
         Voiture::create($validateData);

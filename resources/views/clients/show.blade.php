@@ -10,6 +10,9 @@
 
 @section('content')
     <div class="container">
+        <a class="btn btn-primary" href="{{ route('clients.index') }}">
+            Go Back
+        </a>
         <h1 class="text-center">Détails du client</h1>
         <div class="row">
             <div class="col-md-6">
