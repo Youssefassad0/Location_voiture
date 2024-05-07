@@ -30,6 +30,7 @@
         <h1>
             Liste Des Voitures occupée
         </h1>
+        <a href="{{ url('/') }}" class="btn btn-success">Accueil</a>
         <a href="{{ route('voitures.create') }}">Ajouter une voiture </a>
     </div>
     <table class="table table-stripped">
@@ -60,6 +61,9 @@
             @endforeach
         </tbody>
     </table>
+    <div class="">
+        {{ $voitures->Links() }}
+    </div>
     <script>
         setTimeout(() => {
             document.getElementById('alert').style.display = "none"

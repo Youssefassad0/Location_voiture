@@ -15,9 +15,11 @@
             /* height: 100vh; */
             margin-top: 70px;
         }
-.title{
-    margin-top: 20px
-}
+
+        .title {
+            margin-top: 20px
+        }
+
         .menu {
             display: flex;
             flex-direction: column;
@@ -28,7 +30,16 @@
     </style>
 
 <body class="container mt-5">
+    @if (Session()->has('success'))
+        <div class="alert alert-primary">
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="welcome">
+@auth
+<a href="{{ route('logout') }}" style="color: green ; text-decoration:none;">Logout</a>
+    
+@endauth
         <div class="title">
             <h1 class="text-align-center">Welcome To the AssadLocation</h1>
         </div>

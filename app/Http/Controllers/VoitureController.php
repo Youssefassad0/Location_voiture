@@ -11,9 +11,13 @@ class VoitureController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        $voitures = Voiture::all();
+        $voitures = Voiture::paginate(5);
         return view('voitures.index', compact('voitures'));
     }
 
