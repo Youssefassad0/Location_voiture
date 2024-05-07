@@ -9,8 +9,9 @@
             Home</a></button>
     <h1 class="text-center">Modifier une voiture</h1>
 
-    <form action="{{ route('voitures.store') }}" method="POST">
+    <form action="{{ route('voitures.update') }}" method="POST">
         @csrf
+        @method('PUT')
         <table class="table">
             <tbody>
                 <tr>
@@ -36,7 +37,8 @@
                 </tr>
                 <tr>
                     <th>num_assurance</th>
-                    <td> <input type="number" name="num_assurance" value="{{ $voiture->num_assurance }}" class="form-input">
+                    <td> <input type="number" name="num_assurance" value="{{ $voiture->num_assurance }}"
+                            class="form-input">
                         @error('num_assurance')
                             <div class="text-danger">
                                 {{ $message }}
@@ -56,7 +58,8 @@
                 </tr>
                 <tr>
                     <th>date debut location</th>
-                    <td> <input type="date" name="date_debut_location" value="{{ $voiture->date_debut_location }}" class="form-input">
+                    <td> <input type="date" name="date_debut_location" value="{{ $voiture->date_debut_location }}"
+                            class="form-input">
                         @error('date_debut_location')
                             <div class="text-danger">
                                 {{ $message }}
@@ -66,7 +69,8 @@
                 </tr>
                 <tr>
                     <th>date fin location</th>
-                    <td> <input type="date" class="form-input"  name="date_fin_location" value="{{ $voiture->date_fin_location }}">
+                    <td> <input type="date" class="form-input" name="date_fin_location"
+                            value="{{ $voiture->date_fin_location }}">
                         @error('date_fin_location')
                             <div class="text-danger">
                                 {{ $message }}
@@ -92,7 +96,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <button type="submit" class="btn btn-primary">Ajouter </button>
+                        <button type="submit" class="btn btn-primary">Modifier </button>
                     </td>
                 </tr>
             </tbody>

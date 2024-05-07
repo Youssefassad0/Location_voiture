@@ -28,7 +28,7 @@
     @endif
     <div class="d-flex justify-content-between align-items-center">
         <h1>
-            Liste Des Voitures disponibles
+            Liste Des Voitures occupée
         </h1>
         <a href="{{ route('voitures.create') }}">Ajouter une voiture </a>
     </div>

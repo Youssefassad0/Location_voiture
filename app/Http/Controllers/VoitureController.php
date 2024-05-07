@@ -72,7 +72,18 @@ class VoitureController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validateData = $request->validate([
+            'nom' => 'required',
+            'immatriculation' => 'required|unique:voitures|min:10',
+            'num_assurance' => 'required|numeric',
+            'Kilometrage' => 'required',
+            'date_debut_location' => 'nullable|date',
+            'date_fin_location' => 'nullable|date',
+            'id_client' => 'required'
+        ]);
+        $voiture = Voiture::findOrFail($id);
+        $voiture->update($validateData);
+        return redirect()->route('voitures.index')->with('success', 'voiture a été bien modifié !');
     }
 
     /**
